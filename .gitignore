@@ -1,0 +1,120 @@
+# ==============================================================================
+# PneumoVision_AI - Git Ignore Configuration
+# ==============================================================================
+
+# --- Datasets ---
+# Source X-Ray dataset directory and raw/uncompressed image files
+XRayData/
+XRayData/**
+data/
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+
+# --- PyTorch Models & Checkpoints ---
+# Exclude model weights, checkpoints, and serialization binaries
+*.pt
+*.pth
+*.pwf
+*.bin
+*.onnx
+*.engine
+*.h5
+*.keras
+models/checkpoints/*
+!models/checkpoints/.gitkeep
+models/*.pt
+models/*.pth
+models/*.onnx
+
+# --- Results & Generated Artifacts ---
+# Exclude heavy generated figures, evaluations, and gradcam maps
+results/figures/*
+!results/figures/.gitkeep
+results/metrics/*
+!results/metrics/.gitkeep
+results/confusion_matrix/*
+!results/confusion_matrix/.gitkeep
+results/gradcam/*
+!results/gradcam/.gitkeep
+
+# --- Python Environment & Bytecode ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# --- Virtual Environments ---
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# --- Jupyter Notebooks ---
+.ipynb_checkpoints/
+*-checkpoint.ipynb
+.virtual_documents/
+
+# --- Node.js / React / Vite Frontend ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-debug.log*
+frontend/dist/
+frontend/dist-ssr/
+frontend/.cache/
+*.local
+
+# --- Environment & Secret Variables ---
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# --- IDE & Editor Settings ---
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# --- Operating System Files ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+__MACOSX/
