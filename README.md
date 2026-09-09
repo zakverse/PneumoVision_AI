@@ -184,9 +184,10 @@ PneumoVision_AI/
 - [x] **Tahap 4: Pembuatan Baseline Model (`03_Baseline_Model.ipynb`)**
   - Melatih model CNN custom sederhana dari nol (~40k parameter) dengan Class Weighting.
   - Menetapkan batas bawah performa benchmark (Accuracy: 76,28%, Recall: 98,72% pada Pneumonia).
-- [x] **Tahap 5: Eksperimen Transfer Learning (`04_Transfer_Learning.ipynb`)**
-  - Melatih pretrained ResNet18 dengan bobot ImageNet di bawah kondisi data dan class weights yang setara.
-  - Membuktikan peningkatan generalisasi: Akurasi Test Set 83,33% (+7,05%), F1 Macro 80,02% (+10,51%), Specificity Normal 56,84% (+17,95%), dan Recall Pneumonia tetap unggul pada 99,23%.
+- [x] **Tahap 5: Eksperimen Transfer Learning (`04_Transfer_Learning.ipynb` & `05_EfficientNet_B0.ipynb`)**
+  - Melatih pretrained ResNet18 dan EfficientNet-B0 dengan bobot ImageNet di bawah kondisi data dan class weights yang setara.
+  - **ResNet18**: Akurasi Test Set 83,33%, F1 Macro 80,02%, Specificity Normal 56,84%, dan Recall Pneumonia 99,23%.
+  - **EfficientNet-B0**: Akurasi Test Set 82,53%, F1 Macro 78,76%, Specificity Normal 53,85%, dan Recall Pneumonia **99,74%** (hanya 1 kasus False Negative dari 390 pasien pneumonia!) dengan ukuran model jauh lebih ringkas (~4,01M parameter, checkpoint 48,6 MB).
 - [ ] **Tahap 6: Evaluasi Model Menyeluruh (`05_Model_Evaluation.ipynb`)**
   - Analisis Precision, Recall, F1-Score, ROC-AUC, dan Confusion Matrix.
 - [ ] **Tahap 7: Hyperparameter Tuning (`06_Hyperparameter_Tuning.ipynb`)**
@@ -240,11 +241,11 @@ Tabel evaluasi diperbarui secara berkala berdasarkan hasil eksperimen aktual pad
 |---|---|---|---|---|---|---|
 | **Baseline CNN (From Scratch)** | **76.28%** | **83.85%** | **98.72%** | **38.89%** | **69.51%** | [`baseline_cnn_best.pth`](models/checkpoints/baseline_cnn_best.pth) |
 | **ResNet18 (Transfer Learning)** | **83.33%** | **88.55%** | **99.23%** | **56.84%** | **80.02%** | [`resnet18_transfer_best.pth`](models/checkpoints/resnet18_transfer_best.pth) |
+| **EfficientNet-B0 (Transfer Learning)** | **82.53%** | **88.74%** | **99.74%** | **53.85%** | **78.76%** | [`efficientnet_b0_best.pth`](models/checkpoints/efficientnet_b0_best.pth) |
 | *DenseNet Benchmark* | *Hasil akan diuji pada tahap evaluasi berikutnya.* | *—* | *—* | *—* | *—* | *—* |
-| *EfficientNet Benchmark* | *Hasil akan diuji pada tahap evaluasi berikutnya.* | *—* | *—* | *—* | *—* | *—* |
 | **Model Terbaik Terpilih** | *Akan ditentukan setelah evaluasi komparatif multi-model.* | *—* | *—* | *—* | *—* | *—* |
 
-> *Catatan: Nilai metrik di atas diperoleh dari evaluasi aktual hold-out test set (624 sampel) di notebook `03_Baseline_Model.ipynb` dan `04_Transfer_Learning.ipynb`. Tidak ada angka perkiraan atau rekayasa.*
+> *Catatan: Nilai metrik di atas diperoleh dari evaluasi aktual hold-out test set (624 sampel) di notebook `03_Baseline_Model.ipynb`, `04_Transfer_Learning.ipynb`, dan `05_EfficientNet_B0.ipynb`. Tidak ada angka perkiraan atau rekayasa.*
 
 > *Catatan: Demi menjaga integritas ilmiah dan standar portofolio, tidak ada angka metrik buatan atau dummy yang dicantumkan. Semua nilai akan murni diisi dari hasil evaluasi data test di notebook `07_Final_Model_Analysis.ipynb`.*
 
