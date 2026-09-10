@@ -192,10 +192,14 @@ PneumoVision_AI/
 - [x] **Tahap 6: Explainability & Grad-CAM (`07_GradCAM_Explainability.ipynb`)**
   - Mengimplementasikan Grad-CAM berbasis native PyTorch hooks pada target convolutional layer terakhir (`model.layer4[-1]`) dari model final terpilih (**ResNet18**).
   - Visualisasi transparansi spasial untuk sampel True Negative, True Positive, False Positive, dan False Negative beserta analisis kesalahan objektif (*error analysis*).
-- [ ] **Tahap 7: Kurasi Aset Demo Mode**
+- [x] **Tahap 7: Pembuatan FastAPI Backend Service (`backend/`)**
+  - Membangun REST API berkinerja tinggi menggunakan **FastAPI**, **Uvicorn**, dan **Pydantic**.
+  - Pemuatan model ResNet18 Transfer Learning satu kali saat server startup (*lifespan singleton*) untuk mencegah overhead reload.
+  - Endpoint `GET /health` untuk health checking dan endpoint `POST /predict` untuk inferensi rontgen dada via multipart/form-data.
+  - Dokumentasi otomatis Swagger UI di `/docs` dan ReDoc di `/redoc`.
+  - Integrasi CORS middleware untuk menghubungkan backend dengan frontend React.
+- [ ] **Tahap 8: Kurasi Aset Demo Mode**
   - Memilih 4 sampel rontgen dan menyiapkan JSON hasil inferensi siap saji.
-- [ ] **Tahap 8: Pembuatan FastAPI Backend**
-  - Membangun endpoint `/predict`, `/explain`, dan `/health`.
 - [ ] **Tahap 9: Pembuatan Web UI React + Vite**
   - Merancang antarmuka yang modern, bersih, responsif, dan mudah digunakan.
 
