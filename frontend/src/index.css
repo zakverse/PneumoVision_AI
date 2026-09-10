@@ -3,9 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --color-navy: #12344D;
-  --color-teal: #16B8A6;
-  --color-bg: #F8FAF9;
+  --color-navy: #123B78;
+  --color-teal: #1677D2;
+  --color-blue: #1677D2;
+  --color-bg: #F8FBFF;
 }
 
 html {
@@ -17,22 +18,22 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #F8FAF9;
-  color: #12344D;
+  background-color: #F8FBFF;
+  color: #123B78;
   font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
   overflow-x: hidden;
   width: 100%;
-  /* Grid netral dengan opacity sangat rendah, bersih dan tidak hijau/biru */
+  /* Grid netral sangat subtle */
   background-image: 
-    linear-gradient(to right, rgba(18, 52, 77, 0.018) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(18, 52, 77, 0.018) 1px, transparent 1px);
+    linear-gradient(to right, rgba(18, 59, 120, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(18, 59, 120, 0.02) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Fredoka', 'Quicksand', sans-serif;
   letter-spacing: -0.01em;
-  color: #12344D;
+  color: #123B78;
 }
 
 /* Custom Claymorphism Utilities - Bersih, Netral, Kontras Tinggi */
@@ -40,7 +41,7 @@ h1, h2, h3, h4, h5, h6 {
   background: #FFFFFF;
   border: 2.5px solid #E2E8F0;
   border-radius: 26px;
-  box-shadow: 0 6px 0 #DDE4EC, 0 14px 24px -4px rgba(18, 52, 77, 0.06), inset 0 2px 0 rgba(255, 255, 255, 0.95);
+  box-shadow: 0 6px 0 #D8E2F0, 0 14px 24px -4px rgba(18, 59, 120, 0.05), inset 0 2px 0 rgba(255, 255, 255, 0.95);
   transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -48,7 +49,7 @@ h1, h2, h3, h4, h5, h6 {
   .clay-card {
     border-radius: 20px;
     border-width: 2px;
-    box-shadow: 0 4px 0 #DDE4EC, 0 8px 16px -3px rgba(18, 52, 77, 0.05), inset 0 1.5px 0 rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 0 #D8E2F0, 0 8px 16px -3px rgba(18, 59, 120, 0.04), inset 0 1.5px 0 rgba(255, 255, 255, 0.95);
   }
 }
 
@@ -56,21 +57,22 @@ h1, h2, h3, h4, h5, h6 {
   background: #FFFFFF;
   border: 2px solid #E2E8F0;
   border-radius: 18px;
-  box-shadow: 0 4px 0 #DDE4EC, 0 8px 14px -3px rgba(18, 52, 77, 0.05), inset 0 1.5px 0 rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 0 #D8E2F0, 0 8px 14px -3px rgba(18, 59, 120, 0.04), inset 0 1.5px 0 rgba(255, 255, 255, 0.9);
 }
 
-.clay-card-teal {
+.clay-card-teal,
+.clay-card-blue {
   background: #FFFFFF;
   border: 2.5px solid #E2E8F0;
   border-radius: 22px;
-  box-shadow: 0 5px 0 #DDE4EC, 0 12px 20px -4px rgba(18, 52, 77, 0.05), inset 0 2px 0 rgba(255, 255, 255, 0.9);
+  box-shadow: 0 5px 0 #D8E2F0, 0 12px 20px -4px rgba(18, 59, 120, 0.04), inset 0 2px 0 rgba(255, 255, 255, 0.9);
 }
 
 .clay-card-mint {
   background: #FFFFFF;
   border: 2.5px solid #E2E8F0;
   border-radius: 22px;
-  box-shadow: 0 5px 0 #DDE4EC, 0 12px 20px -4px rgba(18, 52, 77, 0.05), inset 0 2px 0 rgba(255, 255, 255, 0.9);
+  box-shadow: 0 5px 0 #D8E2F0, 0 12px 20px -4px rgba(18, 59, 120, 0.04), inset 0 2px 0 rgba(255, 255, 255, 0.9);
 }
 
 /* Clay 3D Tactile Buttons */
@@ -93,39 +95,42 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(3px);
 }
 
-.clay-btn-teal {
-  background: #16B8A6;
+.clay-btn-teal,
+.clay-btn-blue {
+  background: #1677D2;
   color: #FFFFFF;
-  border: 2px solid #0F9485;
-  box-shadow: 0 4px 0 #0F9485, 0 8px 16px -3px rgba(22, 184, 166, 0.35), inset 0 2px 0 rgba(255, 255, 255, 0.35);
+  border: 2px solid #1162B0;
+  box-shadow: 0 4px 0 #1162B0, 0 8px 16px -3px rgba(22, 119, 210, 0.35), inset 0 2px 0 rgba(255, 255, 255, 0.35);
 }
-.clay-btn-teal:hover:not(:disabled) {
-  background: #13A090;
-  box-shadow: 0 5px 0 #0F9485, 0 10px 18px -3px rgba(22, 184, 166, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.4);
+.clay-btn-teal:hover:not(:disabled),
+.clay-btn-blue:hover:not(:disabled) {
+  background: #136CC0;
+  box-shadow: 0 5px 0 #1162B0, 0 10px 18px -3px rgba(22, 119, 210, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.4);
 }
-.clay-btn-teal:active:not(:disabled) {
-  box-shadow: 0 1px 0 #0F9485, 0 3px 6px -2px rgba(22, 184, 166, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+.clay-btn-teal:active:not(:disabled),
+.clay-btn-blue:active:not(:disabled) {
+  box-shadow: 0 1px 0 #1162B0, 0 3px 6px -2px rgba(22, 119, 210, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .clay-btn-white {
   background: #FFFFFF;
-  color: #12344D;
+  color: #123B78;
   border: 2px solid #E2E8F0;
-  box-shadow: 0 4px 0 #DDE4EC, 0 6px 12px -3px rgba(18, 52, 77, 0.05), inset 0 2px 0 rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 0 #D8E2F0, 0 6px 12px -3px rgba(18, 59, 120, 0.04), inset 0 2px 0 rgba(255, 255, 255, 0.95);
 }
 .clay-btn-white:hover:not(:disabled) {
-  background: #F8FAF9;
-  box-shadow: 0 5px 0 #DDE4EC, 0 8px 14px -3px rgba(18, 52, 77, 0.07), inset 0 2px 0 rgba(255, 255, 255, 1);
+  background: #F8FBFF;
+  box-shadow: 0 5px 0 #D8E2F0, 0 8px 14px -3px rgba(18, 59, 120, 0.06), inset 0 2px 0 rgba(255, 255, 255, 1);
 }
 .clay-btn-white:active:not(:disabled) {
-  box-shadow: 0 1px 0 #DDE4EC, 0 2px 4px -2px rgba(18, 52, 77, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  box-shadow: 0 1px 0 #D8E2F0, 0 2px 4px -2px rgba(18, 59, 120, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .clay-btn:disabled {
   opacity: 0.55;
   cursor: not-allowed;
   transform: none !important;
-  box-shadow: 0 2px 0 #DDE4EC !important;
+  box-shadow: 0 2px 0 #D8E2F0 !important;
 }
 
 /* Animations */
@@ -177,8 +182,8 @@ h1, h2, h3, h4, h5, h6 {
   left: -2px;
   width: 10px;
   height: 10px;
-  border-top: 2.5px solid #16B8A6;
-  border-left: 2.5px solid #16B8A6;
+  border-top: 2.5px solid #1677D2;
+  border-left: 2.5px solid #1677D2;
   border-top-left-radius: 4px;
 }
 .medical-reticle::after {
@@ -188,7 +193,7 @@ h1, h2, h3, h4, h5, h6 {
   right: -2px;
   width: 10px;
   height: 10px;
-  border-bottom: 2.5px solid #16B8A6;
-  border-right: 2.5px solid #16B8A6;
+  border-bottom: 2.5px solid #1677D2;
+  border-right: 2.5px solid #1677D2;
   border-bottom-right-radius: 4px;
 }
