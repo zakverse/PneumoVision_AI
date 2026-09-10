@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function LungIllustration({ className = "w-full h-full text-teal/20" }) {
+export default function LungIllustration({ className = "w-full h-full text-[#1677D2]/20" }) {
   return (
     <svg
       viewBox="0 0 400 320"
