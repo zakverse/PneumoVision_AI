@@ -2,12 +2,12 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="w-full max-w-7xl mx-auto px-3 sm:px-6 pt-8 sm:pt-10 pb-12 sm:pb-16 border-t-2 border-mint-border mt-8 sm:mt-12">
+    <footer className="w-full max-w-7xl mx-auto px-3 sm:px-6 pt-8 sm:pt-10 pb-12 sm:pb-16 border-t border-slate-200 mt-8 sm:mt-12">
       <div className="flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-6 text-center md:text-left">
         
         {/* Info Merek */}
         <div className="flex items-center gap-2.5 sm:gap-3">
-          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-white flex items-center justify-center p-1 shadow-clay-sm border border-mint-border overflow-hidden shrink-0">
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-white flex items-center justify-center p-1 shadow-clay-sm border border-slate-200 overflow-hidden shrink-0">
             <img
               src="/PneumoVision.png"
               alt="Logo PneumoVision"

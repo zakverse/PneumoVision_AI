@@ -40,7 +40,7 @@ export default function ImageUploader({
         {/* Header Kartu Unggah */}
         <div className="flex items-center justify-between mb-4 sm:mb-5">
           <div className="flex items-center gap-2.5 sm:gap-3">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-teal-soft text-teal-dark border-2 border-teal/40 flex items-center justify-center shadow-sm shrink-0">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-slate-100 text-teal-dark border-2 border-slate-200 flex items-center justify-center shadow-sm shrink-0">
               <UploadCloud size={20} className="stroke-[2.5]" />
             </div>
             <div>
@@ -87,16 +87,16 @@ export default function ImageUploader({
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
           id="dropzone-area"
-          className={`relative rounded-2xl sm:rounded-3xl border-3 border-dashed p-5 sm:p-8 text-center cursor-pointer transition-all duration-200 group ${
+          className={`relative rounded-2xl sm:rounded-3xl border-2 border-dashed p-5 sm:p-8 text-center cursor-pointer transition-all duration-200 group ${
             isDragOver
-              ? 'border-teal bg-teal-soft scale-[1.01]'
+              ? 'border-teal bg-teal-soft/40 scale-[1.01]'
               : hasImage
-              ? 'border-teal/50 bg-mint-light hover:bg-mint-soft/60'
-              : 'border-mint-border bg-mint-light hover:bg-white hover:border-teal/60 shadow-inner'
+              ? 'border-slate-300 bg-slate-50 hover:bg-white'
+              : 'border-slate-300 bg-slate-50/70 hover:bg-white hover:border-teal/60 shadow-inner'
           }`}
         >
           <div className="py-2 sm:py-4 flex flex-col items-center">
-            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl sm:rounded-3xl bg-white border-2 border-mint-border shadow-clay-sm flex items-center justify-center text-teal mb-3 group-hover:scale-110 group-hover:rotate-6 transition-transform">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl sm:rounded-3xl bg-white border-2 border-slate-200 shadow-clay-sm flex items-center justify-center text-teal mb-3 group-hover:scale-110 group-hover:rotate-6 transition-transform">
               <UploadCloud size={30} className="stroke-[2.5]" />
             </div>
 
@@ -106,7 +106,7 @@ export default function ImageUploader({
             <p className="text-[11px] sm:text-xs text-navy/60 font-medium mb-1">
               atau klik untuk memilih gambar dari perangkat Anda
             </p>
-            <p className="text-[10px] sm:text-[11px] font-semibold text-teal-dark bg-teal-soft px-2.5 py-0.5 rounded-full border border-teal/20 mb-3.5">
+            <p className="text-[10px] sm:text-[11px] font-semibold text-navy/70 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200 mb-3.5">
               JPG, JPEG, atau PNG
             </p>
 
@@ -127,7 +127,7 @@ export default function ImageUploader({
         </div>
 
         {/* Bagian Contoh Demo (CHIP / TOMBOL TEKS SAJA, TANPA PREVIEW GAMBAR) */}
-        <div className="mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-mint-border">
+        <div className="mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-slate-200">
           <div className="flex items-center gap-1.5 text-[11px] sm:text-xs font-heading font-bold text-navy/70 mb-2.5">
             <Wand2 size={13} className="text-teal" />
             <span>Contoh Gambar:</span>

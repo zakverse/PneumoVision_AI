@@ -182,7 +182,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-mint flex flex-col selection:bg-teal-light selection:text-navy">
+    <div className="min-h-screen bg-softwhite flex flex-col selection:bg-teal-light selection:text-navy">
       {/* 1. Bar Navigasi Mengambang (Header) */}
       <Header
         isBackendOnline={isBackendOnline}

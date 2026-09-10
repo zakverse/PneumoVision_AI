@@ -9,8 +9,7 @@ export default function ConditionGuide() {
       description: "Lapang paru tampak jernih dan radiolusen merata tanpa adanya bayangan bercak opasitas abnormal. Percabangan bronkovaskular dalam batas wajar dan sudut kostofrenikus terlihat tajam.",
       badge: "Kategori Negatif",
       icon: ShieldCheck,
-      colorClass: "clay-card-teal text-navy",
-      accentBg: "bg-white text-teal border-teal/30",
+      iconColor: "text-teal",
       badgeColor: "bg-teal text-white"
     },
     {
@@ -19,19 +18,18 @@ export default function ConditionGuide() {
       description: "Tampak adanya konsolidasi fokal atau infiltrat interstitial berwarna putih akibat akumulasi cairan eksudat dan peradangan di dalam kantung udara alveoli yang menghalangi berkas sinar-X.",
       badge: "Kategori Positif",
       icon: AlertTriangle,
-      colorClass: "clay-card-mint text-navy",
-      accentBg: "bg-white text-navy border-mint-border",
+      iconColor: "text-navy",
       badgeColor: "bg-navy text-white"
     }
   ];
 
   return (
-    <section id="conditions" className="w-full max-w-7xl mx-auto px-3 sm:px-6 py-10 sm:py-16">
-      <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-        <span className="font-heading font-bold text-xs uppercase tracking-wider text-teal-dark px-3 py-1 rounded-full bg-teal-soft border border-teal/40">
+    <section id="conditions" className="w-full max-w-7xl mx-auto px-3 sm:px-6 py-10 sm:py-14">
+      <div className="text-center max-w-2xl mx-auto mb-7 sm:mb-10">
+        <span className="font-heading font-bold text-xs uppercase tracking-wider text-teal-dark px-3 py-1 rounded-full bg-slate-100 border border-slate-200">
           Karakteristik Citra Rontgen
         </span>
-        <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-navy mt-2 sm:mt-3 mb-2 sm:mb-3">
+        <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-navy mt-2 sm:mt-3 mb-2">
           2 Kategori Kondisi Paru
         </h2>
         <p className="text-xs sm:text-base text-navy/70 font-medium px-2 sm:px-0">
@@ -45,12 +43,12 @@ export default function ConditionGuide() {
           return (
             <div
               key={idx}
-              className={`${item.colorClass} p-5 sm:p-8 flex flex-col justify-between transition-all duration-200 hover:-translate-y-1.5`}
+              className="clay-card p-5 sm:p-7 bg-white border-2 border-slate-200 flex flex-col justify-between transition-all duration-200 hover:-translate-y-1.5"
             >
               <div>
-                <div className="flex items-center justify-between mb-4 sm:mb-6">
-                  <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl sm:rounded-3xl ${item.accentBg} border flex items-center justify-center shadow-sm`}>
-                    <Icon size={24} className="stroke-[2.5]" />
+                <div className="flex items-center justify-between mb-4 sm:mb-5">
+                  <div className="w-12 h-12 rounded-2xl bg-slate-100 border border-slate-200 flex items-center justify-center shadow-sm">
+                    <Icon size={22} className={`stroke-[2.5] ${item.iconColor}`} />
                   </div>
                   <span className={`text-[10px] sm:text-[11px] font-heading font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full shadow-sm ${item.badgeColor}`}>
                     {item.badge}
@@ -60,7 +58,7 @@ export default function ConditionGuide() {
                 <h3 className="font-heading text-xl sm:text-2xl font-extrabold tracking-tight mb-1 text-navy">
                   {item.name}
                 </h3>
-                <p className="font-heading font-semibold text-xs sm:text-sm text-teal-dark mb-2 sm:mb-3">
+                <p className="font-heading font-semibold text-xs sm:text-sm text-teal-dark mb-2">
                   "{item.subtitle}"
                 </p>
                 <p className="text-xs sm:text-sm text-navy/75 font-medium leading-relaxed">
@@ -68,7 +66,7 @@ export default function ConditionGuide() {
                 </p>
               </div>
 
-              <div className="mt-5 sm:mt-8 pt-3 sm:pt-4 border-t border-mint-border flex items-center justify-between text-[11px] sm:text-xs font-heading font-bold text-navy/70">
+              <div className="mt-5 sm:mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] sm:text-xs font-heading font-bold text-navy/70">
                 <span>Kelas Model ID: {idx}</span>
                 <span className="flex items-center gap-1 text-teal-dark">
                   ResNet18 Softmax <ArrowUpRight size={13} />

@@ -15,7 +15,7 @@ export default function DetectionResult({
   if (!hasImage && !isLoading) {
     return (
       <div className="clay-card p-6 sm:p-10 bg-white h-full flex flex-col items-center justify-center text-center">
-        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-mint-light border-2 border-mint-border flex items-center justify-center text-teal shadow-clay-sm mb-4 sm:mb-5 p-3">
+        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-slate-100 border-2 border-slate-200 flex items-center justify-center text-teal shadow-clay-sm mb-4 sm:mb-5 p-3.5">
           <LungIllustration className="w-full h-full text-teal stroke-current" />
         </div>
 
@@ -28,8 +28,8 @@ export default function DetectionResult({
         </p>
 
         {/* Info Mini Kelas Target */}
-        <div className="p-3.5 sm:p-4 rounded-2xl bg-mint-light border-2 border-mint-border max-w-xs w-full text-left flex items-center gap-3 shadow-inner">
-          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-mint-border flex items-center justify-center text-teal shadow-sm shrink-0">
+        <div className="p-3.5 sm:p-4 rounded-2xl bg-slate-50 border-2 border-slate-200 max-w-xs w-full text-left flex items-center gap-3 shadow-inner">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-teal shadow-sm shrink-0">
             <Sparkles size={18} />
           </div>
           <div className="text-xs font-semibold text-navy/70">
@@ -45,8 +45,8 @@ export default function DetectionResult({
   if (isLoading) {
     return (
       <div className="clay-card p-6 sm:p-10 bg-white h-full flex flex-col items-center justify-center text-center">
-        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-teal-soft border-2 border-teal/40 flex items-center justify-center text-teal shadow-clay-sm mb-4 animate-pulse">
-          <RefreshCw size={32} className="animate-spin" />
+        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-slate-100 border-2 border-slate-200 flex items-center justify-center text-teal shadow-clay-sm mb-4 animate-pulse">
+          <RefreshCw size={32} className="animate-spin text-teal" />
         </div>
         <h3 className="font-heading text-xl sm:text-2xl font-bold text-navy mb-2">
           Sedang Menganalisis Citra...
@@ -54,7 +54,7 @@ export default function DetectionResult({
         <p className="text-xs sm:text-sm text-navy/60 font-medium max-w-sm mb-4">
           Model ResNet18 sedang memproses struktur citra rontgen dada untuk mengevaluasi indikasi pneumonia.
         </p>
-        <div className="w-48 bg-mint-border h-2 rounded-full overflow-hidden shadow-inner">
+        <div className="w-48 bg-slate-200 h-2 rounded-full overflow-hidden shadow-inner">
           <div className="h-full bg-teal rounded-full animate-pulse w-3/4"></div>
         </div>
       </div>
@@ -71,7 +71,7 @@ export default function DetectionResult({
         {/* Header Bagian Pratinjau & Hasil */}
         <div className="flex items-center justify-between mb-4 sm:mb-5 flex-wrap gap-2">
           <div className="flex items-center gap-2.5 sm:gap-3">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-teal-soft text-teal-dark border-2 border-teal/40 flex items-center justify-center shadow-sm shrink-0">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-slate-100 text-teal-dark border-2 border-slate-200 flex items-center justify-center shadow-sm shrink-0">
               <Eye size={20} className="stroke-[2.5]" />
             </div>
             <div>
@@ -93,29 +93,29 @@ export default function DetectionResult({
 
           {/* Badge Label Jika dari Contoh Demo */}
           {activeSample && (
-            <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-xl bg-teal-soft border border-teal/30 text-teal-dark text-[11px] font-heading font-bold shadow-sm">
-              <Sparkles size={12} />
+            <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-xl bg-slate-100 border border-slate-200 text-navy text-[11px] font-heading font-bold shadow-sm">
+              <Sparkles size={12} className="text-teal" />
               <span>Contoh: {activeSample.category}</span>
             </div>
           )}
         </div>
 
         {/* Tampilan Citra Rontgen */}
-        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border-3 border-mint-border bg-slate-900 shadow-md mb-5 max-h-[260px] sm:max-h-[320px] flex items-center justify-center">
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-slate-200 bg-slate-900 shadow-md mb-5 max-h-[260px] sm:max-h-[320px] flex items-center justify-center">
           <img
             src={imagePreview}
             alt="Pratinjau Citra Rontgen Dada"
             className="w-full h-full max-h-[260px] sm:max-h-[320px] object-contain mx-auto"
           />
 
-          <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 bg-navy/80 backdrop-blur-md px-2.5 sm:px-3 py-1 rounded-xl text-white font-heading font-bold text-[10px] sm:text-xs border border-white/20">
+          <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 bg-navy/85 backdrop-blur-md px-2.5 sm:px-3 py-1 rounded-xl text-white font-heading font-bold text-[10px] sm:text-xs border border-white/20">
             Foto Rontgen Dada
           </div>
         </div>
 
         {/* 2. Hasil Analisis (Jika Belum Dijalankan) */}
         {!result && (
-          <div className="p-4 sm:p-5 rounded-2xl bg-mint-light border-2 border-mint-border text-center">
+          <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 border-2 border-slate-200 text-center">
             <p className="font-heading font-bold text-sm text-navy mb-1">
               Citra Siap Dianalisis
             </p>
@@ -128,7 +128,7 @@ export default function DetectionResult({
         {/* 2. Hasil Analisis (Jika Sudah Ada Hasil) */}
         {result && (
           <div className="mt-2 space-y-4">
-            <div className="flex items-center gap-2 border-b-2 border-mint-border pb-2.5">
+            <div className="flex items-center gap-2 border-b border-slate-200 pb-2.5">
               <Activity size={18} className="text-teal" />
               <h4 className="font-heading text-base sm:text-lg font-bold text-navy">
                 2. Hasil Analisis
@@ -139,8 +139,8 @@ export default function DetectionResult({
             <div
               className={`p-4 sm:p-5 rounded-2xl border-2 transition-all ${
                 result.prediction === 'NORMAL'
-                  ? 'bg-teal-soft border-teal/50 shadow-clay-sm'
-                  : 'bg-mint-soft border-navy/30 shadow-clay-sm'
+                  ? 'bg-slate-50 border-teal/40 shadow-clay-sm'
+                  : 'bg-slate-50 border-slate-300 shadow-clay-sm'
               }`}
             >
               <div className="flex items-center justify-between flex-wrap gap-2">
@@ -181,7 +181,7 @@ export default function DetectionResult({
             </div>
 
             {/* Distribusi Probabilitas Kelas */}
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-mint-light border-2 border-mint-border space-y-3">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-slate-50 border-2 border-slate-200 space-y-3">
               <span className="text-xs font-heading font-bold text-navy block">
                 Distribusi Probabilitas Kelas:
               </span>
@@ -194,7 +194,7 @@ export default function DetectionResult({
                     {(result.probabilities.NORMAL * 100).toFixed(2)}%
                   </span>
                 </div>
-                <div className="w-full bg-white h-2.5 sm:h-3 rounded-full overflow-hidden border border-mint-border shadow-inner">
+                <div className="w-full bg-white h-2.5 sm:h-3 rounded-full overflow-hidden border border-slate-200 shadow-inner">
                   <div
                     className="h-full bg-teal rounded-full transition-all duration-500"
                     style={{ width: `${Math.max(2, result.probabilities.NORMAL * 100)}%` }}
@@ -210,7 +210,7 @@ export default function DetectionResult({
                     {(result.probabilities.PNEUMONIA * 100).toFixed(2)}%
                   </span>
                 </div>
-                <div className="w-full bg-white h-2.5 sm:h-3 rounded-full overflow-hidden border border-mint-border shadow-inner">
+                <div className="w-full bg-white h-2.5 sm:h-3 rounded-full overflow-hidden border border-slate-200 shadow-inner">
                   <div
                     className="h-full bg-navy rounded-full transition-all duration-500"
                     style={{ width: `${Math.max(2, result.probabilities.PNEUMONIA * 100)}%` }}
@@ -220,7 +220,7 @@ export default function DetectionResult({
             </div>
 
             {/* Disclaimer Medis Wajib */}
-            <div className="p-3 rounded-xl bg-mint border border-mint-border text-center">
+            <div className="p-3 rounded-xl bg-slate-100 border border-slate-200 text-center">
               <p className="text-[11px] sm:text-xs text-navy/70 font-medium leading-relaxed">
                 Hasil ini merupakan prototipe penelitian untuk skrining awal dan bukan alat diagnosis medis.
               </p>
