@@ -6,7 +6,7 @@
 # Source X-Ray dataset directory and raw/uncompressed image files
 XRayData/
 XRayData/**
-data/
+/data/
 *.zip
 *.tar
 *.tar.gz
