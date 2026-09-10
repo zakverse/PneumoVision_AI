@@ -39,6 +39,7 @@ results/confusion_matrix/*
 !results/confusion_matrix/.gitkeep
 results/gradcam/*
 !results/gradcam/.gitkeep
+!results/gradcam/*.png
 
 # --- Python Environment & Bytecode ---
 __pycache__/

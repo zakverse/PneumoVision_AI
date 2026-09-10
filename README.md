@@ -189,17 +189,14 @@ PneumoVision_AI/
   - **ResNet18**: Akurasi Test Set 83,33%, F1 Macro 80,02%, Specificity Normal 56,84%, dan Recall Pneumonia 99,23%.
   - **EfficientNet-B0**: Akurasi Test Set 82,53%, F1 Macro 78,76%, Specificity Normal 53,85%, dan Recall Pneumonia **99,74%** (hanya 1 kasus False Negative dari 390 pasien pneumonia!) dengan ukuran model jauh lebih ringkas (~4,01M parameter, checkpoint 48,6 MB).
   - **DenseNet121**: Akurasi Test Set 80,77%, F1 Macro 76,18%, Specificity Normal 49,15%, dan Recall Pneumonia **99,74%** (hanya 1 FN) dengan arsitektur Dense Connectivity (~6,96M parameter, checkpoint 84,4 MB).
-- [ ] **Tahap 6: Evaluasi Model Menyeluruh (`05_Model_Evaluation.ipynb`)**
-  - Analisis Precision, Recall, F1-Score, ROC-AUC, dan Confusion Matrix.
-- [ ] **Tahap 7: Hyperparameter Tuning (`06_Hyperparameter_Tuning.ipynb`)**
-  - Optimasi Learning Rate, Scheduler, Dropout, dan Weight Decay.
-- [ ] **Tahap 8: Analisis Model Final & Grad-CAM (`07_Final_Model_Analysis.ipynb`)**
-  - Pemilihan model terbaik, evaluasi data test final, dan visualisasi Grad-CAM.
-- [ ] **Tahap 9: Kurasi Aset Demo Mode**
+- [x] **Tahap 6: Explainability & Grad-CAM (`07_GradCAM_Explainability.ipynb`)**
+  - Mengimplementasikan Grad-CAM berbasis native PyTorch hooks pada target convolutional layer terakhir (`model.layer4[-1]`) dari model final terpilih (**ResNet18**).
+  - Visualisasi transparansi spasial untuk sampel True Negative, True Positive, False Positive, dan False Negative beserta analisis kesalahan objektif (*error analysis*).
+- [ ] **Tahap 7: Kurasi Aset Demo Mode**
   - Memilih 4 sampel rontgen dan menyiapkan JSON hasil inferensi siap saji.
-- [ ] **Tahap 10: Pembuatan FastAPI Backend**
+- [ ] **Tahap 8: Pembuatan FastAPI Backend**
   - Membangun endpoint `/predict`, `/explain`, dan `/health`.
-- [ ] **Tahap 11: Pembuatan Web UI React + Vite**
+- [ ] **Tahap 9: Pembuatan Web UI React + Vite**
   - Merancang antarmuka yang modern, bersih, responsif, dan mudah digunakan.
 
 ---
@@ -241,27 +238,40 @@ Tabel evaluasi diperbarui secara berkala berdasarkan hasil eksperimen aktual pad
 | Arsitektur Model | Accuracy | Precision (Macro) | Recall (Pneumonia) | Specificity (Normal) | F1-Score (Macro) | Checkpoint |
 |---|---|---|---|---|---|---|
 | **Baseline CNN (From Scratch)** | **76.28%** | **83.85%** | **98.72%** | **38.89%** | **69.51%** | [`baseline_cnn_best.pth`](models/checkpoints/baseline_cnn_best.pth) |
-| **ResNet18 (Transfer Learning)** | **83.33%** | **88.55%** | **99.23%** | **56.84%** | **80.02%** | [`resnet18_transfer_best.pth`](models/checkpoints/resnet18_transfer_best.pth) |
+| **ResNet18 (Transfer Learning) 🏆** | **83.33%** | **88.55%** | **99.23%** | **56.84%** | **80.02%** | [`resnet18_transfer_best.pth`](models/checkpoints/resnet18_transfer_best.pth) |
 | **EfficientNet-B0 (Transfer Learning)** | **82.53%** | **88.74%** | **99.74%** | **53.85%** | **78.76%** | [`efficientnet_b0_best.pth`](models/checkpoints/efficientnet_b0_best.pth) |
 | **DenseNet121 (Transfer Learning)** | **80.77%** | **87.86%** | **99.74%** | **49.15%** | **76.18%** | [`densenet121_best.pth`](models/checkpoints/densenet121_best.pth) |
-| **Model Terbaik Terpilih** | *Akan ditentukan setelah evaluasi komparatif multi-model.* | *—* | *—* | *—* | *—* | *—* |
+| **Model Terbaik Terpilih** | **ResNet18 Transfer Learning** | *Terpilih berdasarkan keseimbangan F1-Score (80.02%) & Specificity (56.84%) tertinggi* | | | | [`resnet18_transfer_best.pth`](models/checkpoints/resnet18_transfer_best.pth) |
 
 > *Catatan: Nilai metrik di atas diperoleh dari evaluasi aktual hold-out test set (624 sampel) di notebook `03_Baseline_Model.ipynb`, `04_Transfer_Learning.ipynb`, `05_EfficientNet_B0.ipynb`, dan `06_DenseNet121.ipynb`. Tidak ada angka perkiraan atau rekayasa.*
 
-> *Catatan: Demi menjaga integritas ilmiah dan standar portofolio, tidak ada angka metrik buatan atau dummy yang dicantumkan. Semua nilai akan murni diisi dari hasil evaluasi data test di notebook `07_Final_Model_Analysis.ipynb`.*
-
 ---
 
-## 🔍 Explainable AI (Grad-CAM)
+## 🔍 Explainability — Grad-CAM
 
-Dalam penerapan AI medis, kita tidak boleh percaya begitu saja pada akurasi tinggi jika tidak tahu alasan di baliknya. Bisa saja model mendapat akurasi bagus karena mengenali tanda teknis pada mesin rontgen (seperti teks 'R' atau 'L') alih-alih kondisi paru-paru pasien (kondisi yang dikenal sebagai *Clever Hans effect*).
+Dalam penerapan AI medis, praktisi kesehatan tidak dapat mempercayai model yang hanya bekerja sebagai *black-box*. Model bisa saja menghasilkan akurasi tinggi karena mengenali teks mesin rontgen (seperti penanda 'R' atau 'L') alih-alih kondisi patologis paru-paru (*Clever Hans effect*).
 
-Oleh karena itu, kami menerapkan **Grad-CAM (Gradient-weighted Class Activation Mapping)**:
-- Mengambil gradien kelas target pada layer konvolusi terakhir.
-- Menghasilkan peta panas (heatmap) berwarna yang menunjukkan area spesifik yang menjadi fokus utama perhatian model.
-- Menumpuk (overlay) heatmap tersebut ke atas foto rontgen asli dengan transparansi interaktif.
+Berdasarkan hasil evaluasi test set, **ResNet18 Transfer Learning** dipilih sebagai model utama karena memberikan generalisasi paling seimbang (Akurasi 83,33%, F1-Score 80,02%, dan Sensitivitas Pneumonia 99,23%).
 
-*Contoh visualisasi Grad-CAM akan ditambahkan setelah model selesai dilatih.*
+Kami menerapkan **Grad-CAM (Gradient-weighted Class Activation Mapping)** pada layer konvolusi terakhir (`model.layer4[-1]`) menggunakan *native PyTorch hooks* untuk memvisualisasikan fitur spasial yang paling berkontribusi terhadap prediksi model.
+
+### 🖼️ Contoh Visualisasi Grad-CAM
+
+#### 1. True Positive — Pneumonia Terdeteksi dengan Tepat
+![Pneumonia Correct Grad-CAM](results/gradcam/pneumonia_correct_01.png)
+*Pada kasus True Positive (`person100_bacteria_475.jpeg`), model memusatkan perhatian tinggi (area merah-kuning) secara terlokalisir pada area konsolidasi infiltrat di lobus paru dengan confidence 99,86%.*
+
+#### 2. True Negative — Paru Sehat Dikonfirmasi Normal
+![Normal Correct Grad-CAM](results/gradcam/normal_correct_01.png)
+*Pada kasus True Negative (`IM-0001-0001.jpeg`), distribusi perhatian model menyebar secara merata dan tenang di kedua rongga paru tanpa adanya fokus aktivasi tajam yang memicu alarm infeksi (confidence Normal 60,07%).*
+
+#### 3. Error Analysis — Kasus False Negative & False Positive
+![Pneumonia False Negative](results/gradcam/pneumonia_false_negative.png)
+*Pada kasus False Negative (`person154_bacteria_728.jpeg`), infiltrat infeksi bersifat sangat halus dan menyebar secara interstisial di sekitar hilum tanpa konsolidasi fokal padat, sehingga model keliru menganggap rongga paru tersebut lapang dan memprediksi Normal.*
+
+> [!IMPORTANT]
+> **Catatan Integritas Klinis:**
+> Peta panas (*heatmap*) Grad-CAM berfungsi murni sebagai **alat bantu transparansi representasi fitur (*explainability aid*)**, bukan sebagai penentu batas lesi anatomis pasti ataupun bukti diagnosis medis klinis yang dapat menggantikan peran dokter spesialis radiologi.
 
 ---
 
