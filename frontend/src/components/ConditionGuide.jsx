@@ -9,8 +9,8 @@ export default function ConditionGuide() {
       description: "Lapang paru tampak jernih dan radiolusen merata tanpa adanya bayangan bercak opasitas abnormal. Percabangan bronkovaskular dalam batas wajar dan sudut kostofrenikus terlihat tajam.",
       badge: "Kategori Negatif",
       icon: ShieldCheck,
-      iconColor: "text-teal",
-      badgeColor: "bg-teal text-white"
+      iconColor: "text-[#1677D2]",
+      badgeColor: "bg-[#1677D2] text-white"
     },
     {
       name: "PNEUMONIA",
@@ -18,21 +18,21 @@ export default function ConditionGuide() {
       description: "Tampak adanya konsolidasi fokal atau infiltrat interstitial berwarna putih akibat akumulasi cairan eksudat dan peradangan di dalam kantung udara alveoli yang menghalangi berkas sinar-X.",
       badge: "Kategori Positif",
       icon: AlertTriangle,
-      iconColor: "text-navy",
-      badgeColor: "bg-navy text-white"
+      iconColor: "text-[#123B78]",
+      badgeColor: "bg-[#123B78] text-white"
     }
   ];
 
   return (
     <section id="conditions" className="w-full max-w-7xl mx-auto px-3 sm:px-6 py-10 sm:py-14">
       <div className="text-center max-w-2xl mx-auto mb-7 sm:mb-10">
-        <span className="font-heading font-bold text-xs uppercase tracking-wider text-teal-dark px-3 py-1 rounded-full bg-slate-100 border border-slate-200">
+        <span className="font-heading font-bold text-xs uppercase tracking-wider text-[#1677D2] px-3 py-1 rounded-full bg-[#EAF4FF] border border-[#1677D2]/25">
           Karakteristik Citra Rontgen
         </span>
-        <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-navy mt-2 sm:mt-3 mb-2">
+        <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-[#123B78] mt-2 sm:mt-3 mb-2">
           2 Kategori Kondisi Paru
         </h2>
-        <p className="text-xs sm:text-base text-navy/70 font-medium px-2 sm:px-0">
+        <p className="text-xs sm:text-base text-[#123B78]/70 font-medium px-2 sm:px-0">
           Model dilatih untuk membedakan struktur radiologis paru normal dengan paru yang terdampak peradangan pneumonia.
         </p>
       </div>
@@ -55,20 +55,20 @@ export default function ConditionGuide() {
                   </span>
                 </div>
 
-                <h3 className="font-heading text-xl sm:text-2xl font-extrabold tracking-tight mb-1 text-navy">
+                <h3 className="font-heading text-xl sm:text-2xl font-extrabold tracking-tight mb-1 text-[#123B78]">
                   {item.name}
                 </h3>
-                <p className="font-heading font-semibold text-xs sm:text-sm text-teal-dark mb-2">
+                <p className="font-heading font-semibold text-xs sm:text-sm text-[#1677D2] mb-2">
                   "{item.subtitle}"
                 </p>
-                <p className="text-xs sm:text-sm text-navy/75 font-medium leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#123B78]/75 font-medium leading-relaxed">
                   {item.description}
                 </p>
               </div>
 
-              <div className="mt-5 sm:mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] sm:text-xs font-heading font-bold text-navy/70">
+              <div className="mt-5 sm:mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] sm:text-xs font-heading font-bold text-[#123B78]/70">
                 <span>Kelas Model ID: {idx}</span>
-                <span className="flex items-center gap-1 text-teal-dark">
+                <span className="flex items-center gap-1 text-[#1677D2]">
                   ResNet18 Softmax <ArrowUpRight size={13} />
                 </span>
               </div>

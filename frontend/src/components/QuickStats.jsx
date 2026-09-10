@@ -8,32 +8,32 @@ export default function QuickStats() {
       label: "Sensitivitas Pneumonia",
       subtext: "Tinggi dalam deteksi kasus positif",
       icon: Activity,
-      cardClass: "clay-card-teal text-navy",
-      iconBg: "bg-teal text-white border-teal-dark"
+      cardClass: "clay-card-blue text-[#123B78]",
+      iconBg: "bg-[#1677D2] text-white border-[#1162B0]"
     },
     {
       value: "83,33%",
       label: "Akurasi Test Set",
       subtext: "Evaluasi dataset uji independen",
       icon: CheckCircle,
-      cardClass: "clay-card-mint text-navy",
-      iconBg: "bg-white text-teal border-mint-border"
+      cardClass: "clay-card-sm text-[#123B78]",
+      iconBg: "bg-white text-[#1677D2] border-slate-200"
     },
     {
       value: "ResNet18",
       label: "Model Transfer Learning",
       subtext: "Deep Convolutional Neural Network",
       icon: Cpu,
-      cardClass: "clay-card-teal text-navy",
-      iconBg: "bg-teal text-white border-teal-dark"
+      cardClass: "clay-card-blue text-[#123B78]",
+      iconBg: "bg-[#1677D2] text-white border-[#1162B0]"
     },
     {
       value: "5.856",
       label: "Total Citra Rontgen",
       subtext: "Data latih, validasi, & pengujian",
       icon: Images,
-      cardClass: "clay-card-mint text-navy",
-      iconBg: "bg-white text-navy border-mint-border"
+      cardClass: "clay-card-sm text-[#123B78]",
+      iconBg: "bg-white text-[#123B78] border-slate-200"
     }
   ];
 

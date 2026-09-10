@@ -182,7 +182,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-softwhite flex flex-col selection:bg-teal-light selection:text-navy">
+    <div className="min-h-screen bg-[#F8FBFF] flex flex-col selection:bg-[#1677D2]/20 selection:text-[#123B78]">
       {/* 1. Bar Navigasi Mengambang (Header) */}
       <Header
         isBackendOnline={isBackendOnline}
@@ -200,14 +200,14 @@ export default function App() {
         {/* 4. Detection Workspace (Area Deteksi Dual-Panel Tanpa Sidebar) */}
         <section id="detect" className="w-full max-w-7xl mx-auto px-3 sm:px-6 py-8 sm:py-12 scroll-mt-20 sm:scroll-mt-24">
           <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
-            <span className="font-heading font-bold text-xs uppercase tracking-wider text-teal-dark px-3 py-1 rounded-full bg-teal-soft border border-teal/40 inline-flex items-center gap-1.5 shadow-sm">
-              <Sparkles size={14} className="fill-teal text-teal" />
+            <span className="font-heading font-bold text-xs uppercase tracking-wider text-[#1677D2] px-3 py-1 rounded-full bg-[#EAF4FF] border border-[#1677D2]/30 inline-flex items-center gap-1.5 shadow-sm">
+              <Sparkles size={14} className="fill-[#1677D2] text-[#1677D2]" />
               Ruang Skrining Interaktif
             </span>
-            <h2 className="font-heading text-2xl sm:text-4xl lg:text-5xl font-extrabold text-navy mt-2 sm:mt-3 mb-2 tracking-tight">
+            <h2 className="font-heading text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#123B78] mt-2 sm:mt-3 mb-2 tracking-tight">
               Deteksi Pneumonia dari Foto Rontgen
             </h2>
-            <p className="text-xs sm:text-base text-navy/70 font-medium px-2 sm:px-0">
+            <p className="text-xs sm:text-base text-[#123B78]/70 font-medium px-2 sm:px-0">
               Unggah foto rontgen dada atau pilih salah satu contoh untuk menganalisis kondisi paru-paru secara langsung.
             </p>
           </div>

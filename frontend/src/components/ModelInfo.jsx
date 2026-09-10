@@ -18,24 +18,24 @@ export default function ModelInfo() {
           
           {/* Kolom Informasi Kiri */}
           <div className="lg:col-span-6 space-y-3 sm:space-y-4">
-            <span className="font-heading font-bold text-xs uppercase tracking-wider text-teal-dark px-3 py-1 rounded-full bg-slate-100 border border-slate-200">
+            <span className="font-heading font-bold text-xs uppercase tracking-wider text-[#1677D2] px-3 py-1 rounded-full bg-[#EAF4FF] border border-[#1677D2]/25">
               Spesifikasi Teknis
             </span>
-            <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-navy leading-tight">
+            <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-[#123B78] leading-tight">
               Didukung oleh ResNet18
             </h2>
-            <p className="text-xs sm:text-base text-navy/75 font-medium leading-relaxed">
+            <p className="text-xs sm:text-base text-[#123B78]/75 font-medium leading-relaxed">
               ResNet18 memanfaatkan koneksi pintas (<em>residual skip connections</em>) yang memungkinkan pelatihan jaringan konvolusional dalam tanpa kendala <em>vanishing gradient</em>. Model ini diadaptasi melalui <em>transfer learning</em> bobot ImageNet untuk mengenali tekstur opasitas dan infiltrat pada citra rontgen dada secara akurat.
             </p>
 
             <div className="pt-1 flex flex-wrap gap-1.5 sm:gap-2">
-              <span className="px-2.5 sm:px-3 py-1 rounded-xl bg-slate-100 border border-slate-200 text-xs font-heading font-bold text-navy">
+              <span className="px-2.5 sm:px-3 py-1 rounded-xl bg-slate-100 border border-slate-200 text-xs font-heading font-bold text-[#123B78]">
                 PyTorch 2.x
               </span>
-              <span className="px-2.5 sm:px-3 py-1 rounded-xl bg-slate-100 border border-slate-200 text-xs font-heading font-bold text-navy">
+              <span className="px-2.5 sm:px-3 py-1 rounded-xl bg-slate-100 border border-slate-200 text-xs font-heading font-bold text-[#123B78]">
                 FastAPI REST API
               </span>
-              <span className="px-2.5 sm:px-3 py-1 rounded-xl bg-slate-100 border border-slate-200 text-xs font-heading font-bold text-navy">
+              <span className="px-2.5 sm:px-3 py-1 rounded-xl bg-slate-100 border border-slate-200 text-xs font-heading font-bold text-[#123B78]">
                 Transfer Learning
               </span>
             </div>
@@ -51,14 +51,14 @@ export default function ModelInfo() {
                     key={idx}
                     className="p-3 sm:p-3.5 rounded-2xl bg-slate-50 border-2 border-slate-200 flex items-start gap-3 shadow-inner"
                   >
-                    <div className="w-9 h-9 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-teal shadow-sm shrink-0">
+                    <div className="w-9 h-9 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-[#1677D2] shadow-sm shrink-0">
                       <Icon size={18} className="stroke-[2.5]" />
                     </div>
                     <div>
-                      <p className="text-[10px] sm:text-[11px] font-heading font-bold uppercase tracking-wider text-navy/50">
+                      <p className="text-[10px] sm:text-[11px] font-heading font-bold uppercase tracking-wider text-[#123B78]/50">
                         {spec.label}
                       </p>
-                      <p className="font-heading font-extrabold text-xs sm:text-sm lg:text-base text-navy mt-0.5">
+                      <p className="font-heading font-extrabold text-xs sm:text-sm lg:text-base text-[#123B78] mt-0.5">
                         {spec.value}
                       </p>
                     </div>
