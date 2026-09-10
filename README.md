@@ -292,3 +292,7 @@ Kami menerapkan **Grad-CAM (Gradient-weighted Class Activation Mapping)** pada l
 ## 📄 Lisensi
 
 Proyek ini dirilis di bawah lisensi terbuka [MIT License](LICENSE).
+
+---
+
+*PneumoVision AI — Dikembangkan untuk edukasi, riset, dan eksplorasi deep learning pada citra medis radiologi.*
