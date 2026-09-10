@@ -1,5 +1,6 @@
 import React from 'react';
-import { Eye, CheckCircle2, AlertTriangle, Activity, Sparkles, RefreshCw, Layers } from 'lucide-react';
+import { Eye, CheckCircle2, AlertTriangle, Activity, Sparkles, RefreshCw } from 'lucide-react';
+import LungIllustration from './LungIllustration';
 
 export default function DetectionResult({
   result,
@@ -14,8 +15,8 @@ export default function DetectionResult({
   if (!hasImage && !isLoading) {
     return (
       <div className="clay-card p-6 sm:p-10 bg-white h-full flex flex-col items-center justify-center text-center">
-        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-mint-light border-2 border-mint-border flex items-center justify-center text-teal shadow-clay-sm mb-4 sm:mb-5">
-          <Layers size={32} className="stroke-[2]" />
+        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-mint-light border-2 border-mint-border flex items-center justify-center text-teal shadow-clay-sm mb-4 sm:mb-5 p-3">
+          <LungIllustration className="w-full h-full text-teal stroke-current" />
         </div>
 
         <h3 className="font-heading text-xl sm:text-2xl font-bold text-navy mb-2">

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import QuickStats from './components/QuickStats';
 import ImageUploader from './components/ImageUploader';
 import DetectionResult from './components/DetectionResult';
 import HowItWorks from './components/HowItWorks';
@@ -192,14 +191,11 @@ export default function App() {
       />
 
       <main className="flex-grow">
-        {/* 2. Hero Section */}
+        {/* 2. Hero Section dengan Dock Statistik Terintegrasi */}
         <Hero onSelectDemoTab={() => {
           // Scroll halus ke workspace deteksi
           document.getElementById('detect')?.scrollIntoView({ behavior: 'smooth' });
         }} />
-
-        {/* 3. Quick Stats */}
-        <QuickStats />
 
         {/* 4. Detection Workspace (Area Deteksi Dual-Panel Tanpa Sidebar) */}
         <section id="detect" className="w-full max-w-7xl mx-auto px-3 sm:px-6 py-8 sm:py-12 scroll-mt-20 sm:scroll-mt-24">
