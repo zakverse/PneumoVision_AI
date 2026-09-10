@@ -197,11 +197,13 @@ PneumoVision_AI/
   - Pemuatan model ResNet18 Transfer Learning satu kali saat server startup (*lifespan singleton*) untuk mencegah overhead reload.
   - Endpoint `GET /health` untuk health checking dan endpoint `POST /predict` untuk inferensi rontgen dada via multipart/form-data.
   - Dokumentasi otomatis Swagger UI di `/docs` dan ReDoc di `/redoc`.
-  - Integrasi CORS middleware untuk menghubungkan backend dengan frontend React.
-- [ ] **Tahap 8: Kurasi Aset Demo Mode**
-  - Memilih 4 sampel rontgen dan menyiapkan JSON hasil inferensi siap saji.
-- [ ] **Tahap 9: Pembuatan Web UI React + Vite**
-  - Merancang antarmuka yang modern, bersih, responsif, dan mudah digunakan.
+- [x] **Tahap 8: Kurasi Aset Demo Mode (`demo/` & `frontend/public/samples/`)**
+  - Mengkurasi 4 citra rontgen dada representatif (2 Normal, 2 Pneumonia) dari data uji terkunci.
+  - Menyiapkan payload precomputed JSON untuk demonstrasi instan tanpa dependensi server backend.
+- [x] **Tahap 9: Pembuatan Web UI React + Vite (`frontend/`)**
+  - Membangun antarmuka modern bertema *medical-tech* menggunakan **React**, **Vite**, **Tailwind CSS**, **Framer Motion**, dan **Lucide React**.
+  - Mengimplementasikan alur inferensi lengkap: Drag & Drop upload -> visual scanner pulse -> result card dengan probabilitas softmax.
+  - Dual mode operasional: *Live AI Mode* terhubung ke FastAPI (`http://127.0.0.1:8000`) dan *Demo Mode* precomputed mandiri.
 
 ---
 

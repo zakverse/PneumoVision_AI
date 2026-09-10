@@ -1,54 +1,93 @@
-# Aplikasi Web Frontend - PneumoVision_AI
+# PneumoVision_AI — Frontend Web Interface
 
-Antarmuka pengguna (web UI) modern, responsif, dan interaktif untuk visualisasi deteksi pneumonia dari citra rontgen dada, dibangun menggunakan **React** dan **Vite**.
+Antarmuka web interaktif, ramah pengguna, dan berestetika *playful claymorphism* untuk sistem penapisan rontgen dada (*Chest X-Ray Pneumonia Screening*) **PneumoVision_AI**. Dibangun menggunakan **React**, **Vite**, **Tailwind CSS**, **Framer Motion**, dan **Lucide React**, dengan mengadopsi arsitektur teruji dari **RoadDamage_AI**.
 
-## Dua Mode Operasional Utama
+---
 
-1. **Demo Mode (Tanpa Backend)**:
-   - Menampilkan **4 sampel rontgen terkurasi** (2 NORMAL, 2 PNEUMONIA).
-   - Dirancang agar aplikasi dapat langsung dideploy secara statis di Vercel, Netlify, atau GitHub Pages tanpa memerlukan backend server ataupun biaya kartu grafis (GPU).
-   - Memberikan pengalaman lengkap kepada pengunjung: visualisasi citra X-ray, indikator skor confidence, serta pengaturan transparansi interaktif untuk heatmap Grad-CAM.
+## 🌟 Fitur Utama & Panduan Desain
 
-2. **Live AI Mode**:
-   - Memungkinkan pengguna mengunggah foto rontgen dada mereka sendiri.
-   - Mengirimkan citra ke endpoint FastAPI backend (`POST /predict` dan `POST /explain`).
-   - Menampilkan hasil klasifikasi langsung dan visualisasi Grad-CAM secara real-time.
+- **Struktur Bersih Tanpa Sidebar:** Menggunakan *floating top header* dan tata letak *dual-panel workspace* yang terpusat, intuitif, dan bebas dari kerumitan dashboard enterprise.
+- **Palet 3 Warna Resmi PneumoVision:**
+  - **Deep Navy (`#12344D`)**: Heading utama, tipografi berbobot, dan border kontras.
+  - **Medical Teal (`#18B8A6`)**: Tombol aksi utama, status siap, progress bar probabilitas, dan highlight interaktif.
+  - **Ice Mint (`#E8F7F5`)**: Latar belakang lembut dengan pola grid dan garis scanline medis ber-opacity rendah.
+- **DNA Visual Claymorphism & Tactile:**
+  - Kartu membulat tebal (*rounded clay cards*).
+  - Bayangan lembut bertingkat (*layered soft shadows*).
+  - Tombol 3D tactile dengan animasi fisik saat ditekan (`transform: translateY(3px)`).
+- **Dual Mode Operasional:**
+  1. **Live AI Mode:** Terhubung langsung ke endpoint REST API FastAPI (`http://127.0.0.1:8000/predict`) untuk inferensi real-time model ResNet18.
+  2. **Demo Mode Mandiri:** Dilengkapi 4 tombol chip teks sampel terkurasi (2 Normal, 2 Pneumonia) yang dapat diuji seketika tanpa memerlukan koneksi backend.
+- **100% Bahasa Indonesia:** Seluruh teks antarmuka, instruksi, dan notifikasi telah diaudit dalam Bahasa Indonesia yang baku dan komunikatif.
+- **Medical Disclaimer Terintegrasi:** Penegasan status sebagai prototipe riset dan skrining awal, bukan alat diagnosis klinis resmi.
 
-## Rencana Struktur Folder Frontend
+---
+
+## 📂 Struktur Komponen Frontend
 
 ```
 frontend/
-├── public/                  # Aset statis & citra sampel mode demo
+├── public/
+│   ├── PneumoVision.png     # Logo resmi PneumoVision
+│   └── samples/             # 4 sampel citra rontgen dada terkurasi
 ├── src/
-│   ├── assets/              # Logo, ikon, dan grafis UI
-│   ├── components/          # Komponen UI modular
-│   │   ├── Header.jsx       # Navigasi & logo aplikasi
-│   │   ├── DisclaimerBanner.jsx # Banner peringatan edukasi & disclaimer medis
-│   │   ├── ModeSelector.jsx # Tombol pilihan antara Demo Mode vs Live AI Mode
-│   │   ├── ImageUploader.jsx# Area drag-and-drop untuk upload citra X-Ray
-│   │   ├── DemoGallery.jsx  # Kartu pilihan 4 sampel rontgen demo
-│   │   ├── ResultCard.jsx   # Kartu tampilan hasil prediksi & tingkat keyakinan
-│   │   ├── GradCamViewer.jsx# Viewer gambar dengan slider transparansi heatmap
-│   │   └── ModelInfoModal.jsx # Modal informasi arsitektur dan metrik model
-│   ├── services/            # API client (Axios / Fetch) & loader data sampel demo
-│   ├── styles/              # Desain sistem & styling CSS modular
-│   ├── App.jsx              # State utama aplikasi
-│   └── main.jsx             # Entry point React
+│   ├── components/
+│   │   ├── Header.jsx       # Bar navigasi mengambang & indikator status API
+│   │   ├── Hero.jsx         # Headline, subheadline, tombol CTA, & kartu pratinjau
+│   │   ├── QuickStats.jsx   # 4 kartu metrik proyek terverifikasi (99,23%, 83,33%, dll)
+│   │   ├── ImageUploader.jsx# Area drag & drop, tombol unggah, & chip teks sampel demo
+│   │   ├── DetectionResult.jsx# Pratinjau citra, hasil prediksi, probabilitas, & disclaimer
+│   │   ├── HowItWorks.jsx   # Alur 3 langkah sistem (Unggah -> Analisis -> Hasil)
+│   │   ├── ConditionGuide.jsx# Karakteristik radiologis paru NORMAL vs PNEUMONIA
+│   │   ├── ModelInfo.jsx    # Spesifikasi teknis arsitektur ResNet18 Transfer Learning
+│   │   ├── FinalCTA.jsx     # Banner ajakan analisis penutup
+│   │   └── Footer.jsx       # Footer informatif dengan lisensi & disclaimer medis
+│   ├── data/
+│   │   └── demoSamples.js   # Dataset metadata & hasil precomputed riil 4 sampel
+│   ├── App.jsx              # Komponen utama pengelola state & alur inferensi
+│   ├── main.jsx             # Entry point React
+│   └── index.css            # Styling dasar, utilitas claymorphism, & animasi
 ├── package.json
-└── README.md
+├── vite.config.js
+├── tailwind.config.js
+├── postcss.config.js
+└── index.html
 ```
 
-## Panduan Menjalankan Frontend (Mendatang)
+---
 
+## 🚀 Panduan Menjalankan Frontend
+
+### 1. Pasang Dependensi
+Masuk ke direktori `frontend` dan pasang paket yang diperlukan:
 ```bash
-# Pasang dependensi
+cd frontend
 npm install
+```
 
-# Jalankan development server
+### 2. Jalankan Development Server
+```bash
 npm run dev
+```
+Buka browser Anda di: 👉 **[http://127.0.0.1:5173](http://127.0.0.1:5173)**
 
-# Build untuk rilis produksi
+### 3. Build untuk Rilis Produksi
+Untuk memeriksa kompilasi dan memproduksi bundle statis yang teroptimasi:
+```bash
 npm run build
 ```
+Hasil build siap saji akan berada di folder `dist/`.
 
-> **Catatan**: Pengembangan frontend akan dimulai setelah pelatihan model dan penyiapan aset demo selesai dilakukan.
+---
+
+## 🔗 Integrasi Backend FastAPI
+
+Frontend otomatis mendeteksi ketersediaan backend:
+- Jika backend aktif di `http://127.0.0.1:8000`, navbar akan menampilkan indikator hijau **"Siap"** (*Live Mode*) dan berkas rontgen yang diunggah akan langsung diklasifikasikan oleh model ResNet18.
+- Jika backend offline, navbar menampilkan **"Mode Demo"** dan pengguna tetap dapat mencoba seluruh fitur antarmuka melalui 4 sampel terkurasi.
+
+---
+
+## ⚠️ Disclaimer Medis
+
+> **PENTING:** Antarmuka ini dibuat murni untuk keperluan riset dan edukasi (*screening/research prototype*) dan **BUKAN** alat diagnostik klinis resmi. Hasil penapisan tidak boleh digunakan sebagai pengganti evaluasi medis dokter spesialis radiologi profesional.
