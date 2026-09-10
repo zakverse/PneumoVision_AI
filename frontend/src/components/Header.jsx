@@ -29,14 +29,14 @@ export default function Header({ isBackendOnline, checkingStatus, onCheckHealth 
           </div>
           <div>
             <div className="flex items-center gap-1.5 sm:gap-2">
-              <span className="font-heading text-lg sm:text-xl font-bold text-navy tracking-tight">
-                PneumoVision<span className="text-teal">.AI</span>
+              <span className="font-heading text-lg sm:text-xl font-bold text-[#123B78] tracking-tight">
+                PneumoVision<span className="text-[#1677D2]">.AI</span>
               </span>
-              <span className="hidden sm:inline-block px-2 py-0.5 rounded-full text-[11px] font-bold bg-slate-100 text-teal-dark border border-slate-200">
+              <span className="hidden sm:inline-block px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#EAF4FF] text-[#1677D2] border border-[#1677D2]/25">
                 v1.0 • ResNet18
               </span>
             </div>
-            <p className="text-[11px] text-navy/60 font-medium hidden md:block">
+            <p className="text-[11px] text-[#123B78]/60 font-medium hidden md:block">
               Skrining AI Rontgen Dada
             </p>
           </div>
@@ -48,7 +48,7 @@ export default function Header({ isBackendOnline, checkingStatus, onCheckHealth 
             <a
               key={link.href}
               href={link.href}
-              className="px-4 py-1.5 rounded-xl font-heading font-semibold text-sm text-navy/80 hover:text-teal hover:bg-white transition-all shadow-none hover:shadow-sm"
+              className="px-4 py-1.5 rounded-xl font-heading font-semibold text-sm text-[#123B78]/80 hover:text-[#1677D2] hover:bg-white transition-all shadow-none hover:shadow-sm"
             >
               {link.label}
             </a>
@@ -64,8 +64,8 @@ export default function Header({ isBackendOnline, checkingStatus, onCheckHealth 
               <span className="hidden xs:inline">Memeriksa</span>
             </div>
           ) : isBackendOnline ? (
-            <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-2xl bg-teal-soft border border-teal/40 text-teal-dark text-[11px] sm:text-xs font-bold shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-teal animate-pulse ring-2 ring-teal/30"></span>
+            <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-2xl bg-[#EAF4FF] border border-[#1677D2]/30 text-[#1677D2] text-[11px] sm:text-xs font-bold shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-[#1677D2] animate-pulse ring-2 ring-[#1677D2]/30"></span>
               <span>Siap</span>
             </div>
           ) : (
@@ -82,7 +82,7 @@ export default function Header({ isBackendOnline, checkingStatus, onCheckHealth 
           {/* Action Button: Mulai Analisis */}
           <a
             href="#detect"
-            className="hidden md:inline-flex clay-btn clay-btn-teal text-xs sm:text-sm px-3.5 sm:px-4 py-1.5 sm:py-2"
+            className="hidden md:inline-flex clay-btn clay-btn-blue text-xs sm:text-sm px-3.5 sm:px-4 py-1.5 sm:py-2 shadow-clay-btn-blue"
           >
             <Zap size={15} />
             <span>Mulai Analisis</span>
@@ -92,7 +92,7 @@ export default function Header({ isBackendOnline, checkingStatus, onCheckHealth 
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded-2xl bg-slate-100 border-2 border-slate-200 text-navy hover:text-teal hover:bg-white transition-all shadow-sm focus:outline-none"
+            className="lg:hidden p-2 rounded-2xl bg-slate-100 border-2 border-slate-200 text-[#123B78] hover:text-[#1677D2] hover:bg-white transition-all shadow-sm focus:outline-none"
             aria-label="Buka menu navigasi"
           >
             {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -109,10 +109,10 @@ export default function Header({ isBackendOnline, checkingStatus, onCheckHealth 
                 key={link.href}
                 href={link.href}
                 onClick={handleNavClick}
-                className="px-4 py-2.5 rounded-xl font-heading font-semibold text-navy hover:text-teal hover:bg-slate-100 active:bg-slate-200 transition-all flex items-center justify-between"
+                className="px-4 py-2.5 rounded-xl font-heading font-semibold text-[#123B78] hover:text-[#1677D2] hover:bg-slate-100 active:bg-slate-200 transition-all flex items-center justify-between"
               >
                 <span>{link.label}</span>
-                <span className="text-navy/30 font-normal">→</span>
+                <span className="text-[#123B78]/30 font-normal">→</span>
               </a>
             ))}
 
@@ -120,7 +120,7 @@ export default function Header({ isBackendOnline, checkingStatus, onCheckHealth 
               <a
                 href="#detect"
                 onClick={handleNavClick}
-                className="clay-btn clay-btn-teal w-full py-3 text-sm justify-center"
+                className="clay-btn clay-btn-blue w-full py-3 text-sm justify-center shadow-clay-btn-blue"
               >
                 <Activity size={16} />
                 <span>Mulai Analisis Sekarang</span>

@@ -15,35 +15,35 @@ export default function Footer() {
             />
           </div>
           <div className="text-left">
-            <span className="font-heading font-bold text-base sm:text-lg text-navy tracking-tight">
-              PneumoVision<span className="text-teal">.AI</span>
+            <span className="font-heading font-bold text-base sm:text-lg text-[#123B78] tracking-tight">
+              PneumoVision<span className="text-[#1677D2]">.AI</span>
             </span>
-            <p className="text-[11px] sm:text-xs text-navy/60 font-medium">
+            <p className="text-[11px] sm:text-xs text-[#123B78]/60 font-medium">
               Skrining citra rontgen dada berbasis deep learning ResNet18.
             </p>
           </div>
         </div>
 
         {/* Tautan Cepat Navigasi */}
-        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm font-heading font-semibold text-navy/70">
-          <a href="#detect" className="hover:text-teal transition-colors py-1">
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm font-heading font-semibold text-[#123B78]/70">
+          <a href="#detect" className="hover:text-[#1677D2] transition-colors py-1">
             Deteksi
           </a>
-          <a href="#how-it-works" className="hover:text-teal transition-colors py-1">
+          <a href="#how-it-works" className="hover:text-[#1677D2] transition-colors py-1">
             Cara Kerja
           </a>
-          <a href="#conditions" className="hover:text-teal transition-colors py-1">
+          <a href="#conditions" className="hover:text-[#1677D2] transition-colors py-1">
             Kondisi Paru
           </a>
-          <a href="#model-info" className="hover:text-teal transition-colors py-1">
+          <a href="#model-info" className="hover:text-[#1677D2] transition-colors py-1">
             Model AI
           </a>
         </div>
 
         {/* Hak Cipta & Disclaimer */}
-        <div className="text-[11px] sm:text-xs font-medium text-navy/50 text-center md:text-right">
+        <div className="text-[11px] sm:text-xs font-medium text-[#123B78]/50 text-center md:text-right">
           <p>© {new Date().getFullYear()} PneumoVision AI. Hak cipta dilindungi.</p>
-          <p className="mt-0.5 text-[10px] text-navy/40">
+          <p className="mt-0.5 text-[10px] text-[#123B78]/40">
             Prototipe Penelitian Skrining Radiologi • Bukan Alat Diagnosis Klinis
           </p>
         </div>
